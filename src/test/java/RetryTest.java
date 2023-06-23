@@ -1,0 +1,18 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class RetryTest {
+    private int attempt =1;
+
+    @Test(invocationCount = 7)
+    public void flakyTest(){
+        if(attempt==6){
+            System.out.println("Attempt is: " + attempt);
+            Assert.assertTrue(true);
+        }else{
+            attempt++;
+            System.out.println("Attempt is: " + attempt);
+            throw new NullPointerException();
+        }
+    }
+}
