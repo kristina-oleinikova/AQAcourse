@@ -1,10 +1,11 @@
 import org.testng.Assert;
+import org.testng.IRetryAnalyzer;
 import org.testng.annotations.Test;
 
 public class RetryTest {
     private int attempt =1;
 
-    @Test(invocationCount = 7)
+    @Test(retryAnalyzer = Retry.class)
     public void flakyTest(){
         if(attempt==6){
             System.out.println("Attempt is: " + attempt);

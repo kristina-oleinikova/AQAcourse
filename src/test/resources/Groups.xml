@@ -14,7 +14,9 @@
                 <include name="regression"/>
             </define>
             <run>
+                <include name="Group 1"/>
                 <include name="Group 2"/>
+                <include name="Group 3"/>
             </run>
         </groups>
         <classes>

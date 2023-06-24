@@ -8,13 +8,13 @@
                     <include name="initTest_1"/>
                 </methods>
             </class>
-            <class name="CalculatorTest"></class>
-            <class name="DependencyTest"></class>
+            <class name="CalculatorTest"/>
+            <class name="DependencyTest"/>
         </classes>
     </test>
     <test name="Regression">
         <classes>
-            <class name="PriorityTest"></class>
+            <class name="PriorityTest"/>
             <class name="BUnitTest">
                 <methods>
                     <exclude name="initTest_4"/>

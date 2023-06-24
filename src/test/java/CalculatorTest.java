@@ -2,6 +2,8 @@ import data.StaticProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class CalculatorTest extends BaseTest{
     @Test
     public void sumTest_1(){
@@ -53,11 +55,11 @@ public class CalculatorTest extends BaseTest{
         Assert.assertEquals(actualValue,expectedValue, "Values are not equals");
     }
 
-//    @Test(expectedExceptions = NullPointerException.class)
-//    public void exceptionTest(){
-//        List list = null;
-//        int size = list.size();
-//    }
+    @Test(expectedExceptions = NullPointerException.class)
+    public void exceptionTest(){
+        List list = null;
+        int size = list.size();
+    }
 
     @Test(dataProvider = "Data for SumTest", dataProviderClass = StaticProvider.class, threadPoolSize = 2)
     public void dataProviderTest(int a, int b, int expectedValue) throws InterruptedException {
