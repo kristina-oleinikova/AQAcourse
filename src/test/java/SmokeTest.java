@@ -78,6 +78,7 @@ public class SmokeTest {
 
     }
 
+
     @AfterMethod
     public void tearDown(){
         driver.quit();
