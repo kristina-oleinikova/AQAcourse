@@ -17,24 +17,24 @@ public class LoginTest extends BaseTest {
     @Test
     public void incorrectEmailLoginTest() {
         Assert.assertEquals(
-                loginStep.negativeLogin("asdasd", ReadProperties.password()).getErrorTextElement().getText(),
-                "Email/Login or Password is incorrect. Please try again."
+                loginStep.negativeLogin("asdasd", ReadProperties.password()).getErrorMessage().getText(),
+                "Epic sadface: Username and password do not match any user in this service"
         );
     }
 
     @Test
     public void incorrectPswLoginTest() {
         Assert.assertEquals(
-                loginStep.negativeLogin(ReadProperties.username(), "123456").getErrorTextElement().getText(),
-                "Email/Login or Password is incorrect. Please try again.",
+                loginStep.negativeLogin(ReadProperties.username(), "123456").getErrorMessage().getText(),
+                "Epic sadface: Username and password do not match any user in this service",
                 "Неверное сообщение об ошибке");
     }
 
     @Test
     public void shortPswLoginTest() {
         Assert.assertEquals(
-                loginStep.negativeLogin(ReadProperties.username(), "123").getErrorFieldTextElement().getText(),
-                "Password is too short (5 characters required).",
+                loginStep.negativeLogin(ReadProperties.username(), "123").getErrorMessage().getText(),
+                "Epic sadface: Username and password do not match any user in this service",
                 "Неверное сообщение об ошибке");
     }
 }
