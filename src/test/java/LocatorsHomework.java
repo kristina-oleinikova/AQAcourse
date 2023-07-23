@@ -188,9 +188,9 @@ public class LocatorsHomework {
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id='menu_button_container']/following-sibling::div")).isDisplayed());
 
         //Использование preceding- Выбирает все узлы, которые появляются перед текущим узлом в документе
-        //Assert.assertTrue(driver.findElement(By.xpath("//*[@class=\"dialog-title\"]/preceding::form")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='shopping_cart_container']/preceding::div")).isDisplayed());
 
         //Использование preceding-sibling - Выбирает все узлы одного уровня до текущего узла
-        //Assert.assertTrue(driver.findElement(By.xpath("//*[@class='dialog-title']/preceding-sibling::form")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='shopping_cart_container']/preceding-sibling::div")).isDisplayed());
     }
 }
