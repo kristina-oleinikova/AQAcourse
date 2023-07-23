@@ -63,9 +63,9 @@ public class CheckoutAddInformation extends BasePage {
     }
 
 
-    public void addInfoInForm(){
-        setFirstName("1234");
-        setLastName("1234");
-        setPostalCode("1234");
+    public void addInfoInForm(String firstName, String lastName,String postalCode){
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPostalCode(postalCode);
     }
 }

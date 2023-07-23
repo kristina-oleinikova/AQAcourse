@@ -10,8 +10,8 @@ public class CheckoutCompleteStep extends BaseStep {
         super(driver);
     }
 
-    public InventoryPage clickComplete(){
-        checkoutComplete.getBackToHomeButton().click();
-        return inventoryPage;
+    public CheckoutComplete checkCompleteTitle(){
+        checkoutComplete.getCheckoutCompleteTitle().isDisplayed();
+        return checkoutComplete;
     }
 }

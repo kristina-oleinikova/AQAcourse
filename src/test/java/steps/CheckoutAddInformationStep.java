@@ -11,7 +11,7 @@ public class CheckoutAddInformationStep extends BaseStep {
     }
 
     public CheckoutAddInformation fillFormWithValidData(){
-        checkoutAddInformation.addInfoInForm();
+        checkoutAddInformation.addInfoInForm("1234","1234","1234");
         return checkoutAddInformation;
     }
 

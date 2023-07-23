@@ -9,13 +9,18 @@ public class e2eTest extends BaseTest {
 
     @Test
     public void e2eTest(){
-        Assert.assertTrue(loginStep.successLogin(ReadProperties.username(), ReadProperties.password()).isPageOpened());
-        Assert.assertTrue(inventoryAddItemStep.addItemToBasket().isPageOpened());
-        Assert.assertTrue(inventoryAddItemStep.openCart().isPageOpened());
-        Assert.assertTrue(cartStep.clickCheckout().isPageOpened());
-        Assert.assertTrue(checkoutAddInformationStep.fillFormWithValidData().isPageOpened());
-        Assert.assertTrue(checkoutAddInformationStep.continueCheckout().isPageOpened());
-        Assert.assertTrue(checkoutOverviewStep.clickFinish().isPageOpened());
-        Assert.assertTrue(checkoutCompleteStep.clickComplete().isPageOpened());
+        loginStep.successLogin(ReadProperties.username(), ReadProperties.password()).isPageOpened();
+        inventoryAddItemStep.addItemToBasket().getHeaderTitle().isDisplayed();
+        inventoryAddItemStep.openCart().getCheckoutButton().isDisplayed();
+        cartStep.clickCheckout().getContinueButton().isDisplayed();
+        checkoutAddInformationStep.fillFormWithValidData();
+        checkoutAddInformationStep.continueCheckout().getFinishButton().isDisplayed();
+        checkoutOverviewStep.clickFinish();
+
+        Assert.assertEquals(
+                checkoutCompleteStep.checkCompleteTitle().getCheckoutCompleteTitle().getText(),
+                "Checkout: Complete!",
+                "Wrong Complete page"
+        );
     }
 }

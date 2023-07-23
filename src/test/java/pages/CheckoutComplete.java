@@ -11,6 +11,9 @@ public class CheckoutComplete extends BasePage {
 
     // Блок описания локаторов для элементов
     private final By backHomeButtonLocator = By.id("back-to-products");
+    private final By checkoutCompleteTitleLocator = By.xpath(
+            "//*[contains(@class, 'title') and contains (text(), 'Checkout: Complete!')]"
+    );
 
     // Блок инициализации
 
@@ -31,5 +34,9 @@ public class CheckoutComplete extends BasePage {
 
     public WebElement getBackToHomeButton() {
         return driver.findElement(backHomeButtonLocator);
+    }
+
+    public WebElement getCheckoutCompleteTitle() {
+        return driver.findElement(checkoutCompleteTitleLocator);
     }
 }
