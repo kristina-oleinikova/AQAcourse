@@ -9,8 +9,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import services.WaitService;
 
-import java.util.List;
-
 public class ActionsTests_HW extends BaseTest {
 
     @Test
