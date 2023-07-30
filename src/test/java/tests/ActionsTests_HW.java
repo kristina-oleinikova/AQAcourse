@@ -59,7 +59,6 @@ public class ActionsTests_HW extends BaseTest {
         fileUploadElement.sendKeys(pathToFile);
 
         waitService.waitForVisibilityLocatedBy(By.id("file-submit")).submit();
-
         Assert.assertEquals(waitService.waitForVisibilityLocatedBy(By.id("uploaded-files")).getText(),
                 "screenHW.png");
     }
