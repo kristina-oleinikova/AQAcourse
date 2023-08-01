@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suites">
+    <test name="E2E Test">
+        <classes>
+            <class name="tests.e2eTest">
+                <methods>
+                    <include name="e2eTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Login Tests">
+        <classes>
+            <class name="tests.LoginTest">
+                <methods>
+                    <include name="successLoginTest"/>
+                    <include name="incorrectEmailLoginTest"/>
+                    <include name="screenshotLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
