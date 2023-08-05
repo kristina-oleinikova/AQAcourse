@@ -1,12 +1,16 @@
 package pages;
 
 import baseEntities.BasePage;
-import net.bytebuddy.asm.MemberSubstitution;
+import elements.Button;
+import elements.Input;
+import elements.UIElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
-import utils.configuration.ReadProperties;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage extends BasePage {
     // Блок описания локаторов для элементов
@@ -27,16 +31,20 @@ public class LoginPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getEmailInput() {
-        return driver.findElement(emailInputLocator);
+    public Input getEmailInput() {
+        return new Input(driver, emailInputLocator);
     }
 
-    public WebElement getPswInput() {
-        return driver.findElement(pswInputLocator);
+    public Input getPswInput() {
+        return new Input(driver, pswInputLocator);
     }
 
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
+    public boolean isPswInputDisplayed() {
+        return getPswInput().isDisplayed();
+    }
+
+    public Button getLogInButton() {
+        return new Button(driver, logInButtonLocator);
     }
 
     public void setEmail(String value) {

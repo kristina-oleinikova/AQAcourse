@@ -1,25 +1,21 @@
 package pages;
 
 import baseEntities.BasePage;
+import elements.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-public class DashboardPage extends BasePage {
-    private final static String pagePath = "/index.php?/dashboard/";
+public class ProjectsPage extends BasePage {
+    private final static String pagePath = "/index.php?/admin/projects/overview";
 
     // Блок описания локаторов для элементов
-    private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
-
-    public TopMenuPage topMenuPage;
-    public SideMenuPage sideMenuPage;
+    private final By headerTitleLabelLocator = By.className("page_title");
+    private final By projectsTableLocator = By.cssSelector("#content-inner table");
 
     // Блок инициализации
-    public DashboardPage(WebDriver driver) {
+    public ProjectsPage(WebDriver driver) {
         super(driver);
 
-        topMenuPage = new TopMenuPage(driver);
-        sideMenuPage = new SideMenuPage(driver);
     }
 
     @Override
@@ -36,4 +32,7 @@ public class DashboardPage extends BasePage {
         return driver.findElement(headerTitleLabelLocator);
     }
 
+    public Table getProjectsTable() {
+        return new Table(driver, projectsTableLocator);
+    }
 }

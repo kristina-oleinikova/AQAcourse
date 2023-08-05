@@ -37,4 +37,9 @@ public class LoginTest extends BaseTest {
                 "Password is too short (5 characters required).",
                 "Неверное сообщение об ошибке");
     }
+
+    @Test
+    public void screenShotTest() {
+        Assert.assertTrue(false);
+    }
 }
