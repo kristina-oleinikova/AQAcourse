@@ -94,6 +94,14 @@ public class UIElement implements WebElement {
         return list;
     }
 
+    public UIElement findUIElement(By by) {
+        for (WebElement element : webElement.findElements(by)) {
+            return new UIElement(driver, element);
+        }
+
+        return null;
+    }
+
     @Override
     public UIElement findElement(By by) {
         return new UIElement(driver, webElement.findElement(by));
