@@ -28,11 +28,12 @@ public class LombokTest {
 
     @Test
     public void constructorTest() {
-        User user = new User(1, "sds", "sdsd", "", "dd");
-        User user1 = new User("sds", "sdsd");
-
-        System.out.println(user);
-        System.out.println(user1);
+        User user = new User();
+//        User user = new User(1, "sds", "sdsd", "", "dd");
+//        User user1 = new User("sds", "sdsd");
+//
+//        System.out.println(user);
+//        System.out.println(user1);
     }
 
     @Test
