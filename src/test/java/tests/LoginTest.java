@@ -1,7 +1,9 @@
 package tests;
 
 import baseEntities.BaseTest;
+import helper.DataHelper;
 import io.qameta.allure.*;
+import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.configuration.ReadProperties;
@@ -16,8 +18,7 @@ public class LoginTest extends BaseTest {
     @TmsLink("TestCase-11")
     public void successLoginTest() {
         Assert.assertTrue(
-                loginStep.successLogin(ReadProperties.username(), ReadProperties.password()
-                ).isPageOpened()
+                loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened()
         );
     }
 
@@ -26,8 +27,12 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Issue("BUG-1")
     public void incorrectEmailLoginTest() {
+        User user = new User();
+        user.setEmail("asdasd");
+        user.setPassword(ReadProperties.password());
+
         Assert.assertEquals(
-                loginStep.negativeLogin("asdasd", ReadProperties.password()).getErrorMessage().getText(),
+                loginStep.negativeLogin(user).getErrorMessage().getText(),
                 "Epic sadface: Username and password do not match any user in this service"
         );
     }
@@ -36,8 +41,12 @@ public class LoginTest extends BaseTest {
     @Description("Failed login: valid username + invalid password")
     @Severity(SeverityLevel.MINOR)
     public void incorrectPswLoginTest() {
+        User user = new User();
+        user.setEmail(ReadProperties.username());
+        user.setPassword("123456");
+
         Assert.assertEquals(
-                loginStep.negativeLogin(ReadProperties.username(), "123456").getErrorMessage().getText(),
+                loginStep.negativeLogin(user).getErrorMessage().getText(),
                 "Epic sadface: Username and password do not match any user in this service",
                 "Неверное сообщение об ошибке");
     }
@@ -46,8 +55,12 @@ public class LoginTest extends BaseTest {
     @Description("Failed login: valid username + short password")
     @Severity(SeverityLevel.TRIVIAL)
     public void shortPswLoginTest() {
+        User user = new User();
+        user.setEmail(ReadProperties.username());
+        user.setPassword("123");
+
         Assert.assertEquals(
-                loginStep.negativeLogin(ReadProperties.username(), "123").getErrorMessage().getText(),
+                loginStep.negativeLogin(user).getErrorMessage().getText(),
                 "Epic sadface: Username and password do not match any user in this service",
                 "Неверное сообщение об ошибке");
     }
@@ -56,7 +69,11 @@ public class LoginTest extends BaseTest {
     @Description("Failed login: invalid username + valid password")
     @Severity(SeverityLevel.MINOR)
     public void screenshotLoginTest() {
+        User user = new User();
+        user.setEmail(ReadProperties.username());
+        user.setUsername("asdasd");
+
         Assert.assertTrue(
-                loginStep.successLogin("asdasd", ReadProperties.password()).isPageOpened());
+                loginStep.successLogin(user).isPageOpened());
     }
 }
