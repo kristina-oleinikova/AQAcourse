@@ -18,8 +18,7 @@ public class LoginTest extends BaseTest {
     @TmsLink("TestCase-11")
     public void successLoginTest() {
         Assert.assertTrue(
-                loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened()
-        );
+                loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened());
     }
 
     @Test(description = "Login with invalid username")

@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Date;
 
-import static io.netty.handler.codec.http.HttpHeaders.setDate;
-
 public class AddProjectPage extends BasePage {
     private final static String pagePath = "/index.php?/dashboard/";
 
