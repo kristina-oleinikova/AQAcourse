@@ -1,19 +1,22 @@
 package pages;
 
 import baseEntities.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutComplete extends BasePage {
 
     private final static String pagePath = "/checkout-complete.html";
 
     // Блок описания локаторов для элементов
-    private final By backHomeButtonLocator = By.id("back-to-products");
-    private final By checkoutCompleteTitleLocator = By.xpath(
-            "//*[contains(@class, 'title') and contains (text(), 'Checkout: Complete!')]"
-    );
+    @FindBy(id ="back-to-products")
+    public WebElement backHomeButton;
+
+    @FindBy(xpath = "//*[contains(@class, 'title') and contains (text(), 'Checkout: Complete!')]")
+    public WebElement checkoutCompleteTitle;
 
     // Блок инициализации
 
@@ -27,16 +30,12 @@ public class CheckoutComplete extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return backHomeButtonLocator;
+        return By.id("back-to-products");
     }
 
-    // Блок атомарных методов
-
-    public WebElement getBackToHomeButton() {
-        return driver.findElement(backHomeButtonLocator);
-    }
-
-    public WebElement getCheckoutCompleteTitle() {
-        return driver.findElement(checkoutCompleteTitleLocator);
+    @Step("Checkout completed successfully")
+    public CheckoutComplete checkCompleteTitle(){
+        checkoutCompleteTitle.isDisplayed();
+        return this;
     }
 }

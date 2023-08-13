@@ -1,16 +1,27 @@
 package pages;
 
 import baseEntities.BasePage;
+import helper.DataHelper;
+import io.qameta.allure.Step;
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
     // Блок описания локаторов для элементов
-    private final By usernameInputLocator = By.id("user-name");
-    private final By pswInputLocator = By.id("password");
-    private final By logInButtonLocator = By.id("login-button");
-    private final By errorMessageLocator = By.xpath("//div [@class='error-message-container error']");
+    @FindBy(id ="user-name")
+    public WebElement usernameInput;
+
+    @FindBy(id ="password")
+    public WebElement pswInput;
+
+    @FindBy(id = "login-button")
+    public WebElement logInButton;
+
+    @FindBy(xpath = "//div [@class='error-message-container error']")
+    public WebElement errorMessage;
 
     // Блок инициализации
     public LoginPage(WebDriver driver) {
@@ -19,35 +30,47 @@ public class LoginPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return logInButtonLocator;
+        return By.id("button_primary");
     }
 
-    // Блок атомарных методов
-    public WebElement getUsernameInput() {
-        return driver.findElement(usernameInputLocator);
+
+    @Step("Login with valid credentials")
+    public InventoryPage successLogin() {
+        login();
+
+        return new InventoryPage(driver);
     }
 
-    public WebElement getPswInput() {
-        return driver.findElement(pswInputLocator);
+    public InventoryPage successLogin(User user) {
+        login(user);
+
+        return new InventoryPage(driver);
     }
 
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
+    public LoginPage negativeLogin() {
+        login();
+
+        return this;
     }
 
-    public WebElement getErrorMessage() {
-        return driver.findElement(errorMessageLocator);
-    }
+    public LoginPage negativeLogin(User user) {
+        login(user);
 
-    public void setEmail(String value) {
-        getUsernameInput().sendKeys(value);
+        return this;
     }
 
 
     // Блок комплексных методов
-    public void login(String username, String psw) {
-        setEmail(username);
-        getPswInput().sendKeys(psw);
-        getLogInButton().click();
+    public void login() {
+        usernameInput.sendKeys(DataHelper.getStandartUser().getUsername());
+        pswInput.sendKeys(DataHelper.getStandartUser().getPassword());
+        logInButton.click();
     }
+
+    public void login(User user) {
+        usernameInput.sendKeys(user.getUsername());
+        pswInput.sendKeys(user.getPassword());
+        logInButton.click();
+    }
+
 }

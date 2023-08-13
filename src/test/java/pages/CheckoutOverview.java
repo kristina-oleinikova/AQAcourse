@@ -1,16 +1,19 @@
 package pages;
 
 import baseEntities.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutOverview extends BasePage {
 
     private final static String pagePath = "/checkout-step-two.html";
 
     // Блок описания локаторов для элементов
-    private final By FinishButtonLocator = By.id("finish");
+    @FindBy(id = "finish")
+    public WebElement finishButton;
 
     // Блок инициализации
 
@@ -24,12 +27,12 @@ public class CheckoutOverview extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return FinishButtonLocator;
+        return By.id("finish");
     }
 
-    // Блок атомарных методов
-
-    public WebElement getFinishButton() {
-        return driver.findElement(FinishButtonLocator);
+    @Step("Overview order details & click on 'Finish' button")
+    public CheckoutComplete clickFinish(){
+        finishButton.click();
+        return new CheckoutComplete(driver);
     }
 }

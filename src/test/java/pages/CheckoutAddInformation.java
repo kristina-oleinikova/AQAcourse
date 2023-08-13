@@ -1,19 +1,28 @@
 package pages;
 
 import baseEntities.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutAddInformation extends BasePage {
 
     private final static String pagePath = "/checkout-step-one.html";
 
     // Блок описания локаторов для элементов
-    private final By continueButtonLocator = By.id("continue");
-    private final By firstNameInputLocator = By.id("first-name");
-    private final By lastNameInputLocator = By.id("last-name");
-    private final By postalCodeInputLocator = By.id("postal-code");
+    @FindBy(id = "continue")
+    public WebElement continueButton;
+
+    @FindBy(id = "first-name")
+    public WebElement firstNameInput;
+
+    @FindBy(id = "last-name")
+    public WebElement lastNameInput;
+
+    @FindBy(id = "postal-code")
+    public WebElement postalCodeInput;
 
 
     // Блок инициализации
@@ -28,38 +37,22 @@ public class CheckoutAddInformation extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return continueButtonLocator;
+        return By.id("continue");
     }
 
 
     // Блок атомарных методов
 
-    public WebElement getContinueButton() {
-        return driver.findElement(continueButtonLocator);
-    }
-
-    public WebElement getFirstNameInput() {
-        return driver.findElement(firstNameInputLocator);
-    }
-
-    public WebElement getLastNameInput() {
-        return driver.findElement(lastNameInputLocator);
-    }
-
-    public WebElement getPostalCodeInput() {
-        return driver.findElement(postalCodeInputLocator);
-    }
-
     public void setFirstName(String value) {
-        getFirstNameInput().sendKeys(value);
+        firstNameInput.sendKeys(value);
     }
 
     public void setLastName(String value) {
-        getLastNameInput().sendKeys(value);
+        lastNameInput.sendKeys(value);
     }
 
     public void setPostalCode(String value) {
-        getPostalCodeInput().sendKeys(value);
+        postalCodeInput.sendKeys(value);
     }
 
 
@@ -67,5 +60,17 @@ public class CheckoutAddInformation extends BasePage {
         setFirstName(firstName);
         setLastName(lastName);
         setPostalCode(postalCode);
+    }
+
+    @Step("Fill the form with valid data")
+    public CheckoutAddInformation fillFormWithValidData(){
+        addInfoInForm("1234","1234","1234");
+        return this;
+    }
+
+    @Step("Submit the form")
+    public CheckoutOverview continueCheckout(){
+        continueButton.click();
+        return new CheckoutOverview(driver);
     }
 }

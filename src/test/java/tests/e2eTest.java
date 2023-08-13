@@ -6,7 +6,8 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.configuration.ReadProperties;
+import pages.CheckoutComplete;
+import pages.LoginPage;
 
 public class e2eTest extends BaseTest {
 
@@ -14,16 +15,17 @@ public class e2eTest extends BaseTest {
     @Description("Test is verified the full flow of buying a product at Platform")
     @Severity(SeverityLevel.CRITICAL)
     public void e2eTest(){
-        loginStep.successLogin(ReadProperties.username(), ReadProperties.password()).isPageOpened();
-        inventoryAddItemStep.addItemToBasket().getHeaderTitle().isDisplayed();
-        inventoryAddItemStep.openCart().getCheckoutButton().isDisplayed();
-        cartStep.clickCheckout().getContinueButton().isDisplayed();
-        checkoutAddInformationStep.fillFormWithValidData();
-        checkoutAddInformationStep.continueCheckout().getFinishButton().isDisplayed();
-        checkoutOverviewStep.clickFinish();
+        new LoginPage(driver)
+                .successLogin()
+                .addItemToBasket()
+                .openCart()
+                .clickCheckout()
+                .fillFormWithValidData()
+                .continueCheckout()
+                .clickFinish();
 
         Assert.assertEquals(
-                checkoutCompleteStep.checkCompleteTitle().getCheckoutCompleteTitle().getText(),
+                new CheckoutComplete(driver).checkCompleteTitle().checkoutCompleteTitle.getText(),
                 "Checkout: Complete!",
                 "Wrong Complete page"
         );
