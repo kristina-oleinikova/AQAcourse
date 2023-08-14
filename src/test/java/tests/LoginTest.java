@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
     @TmsLink("TestCase-11")
     public void successLoginTest() {
         Assert.assertTrue(
-                loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened()
+                loginStep.successLogin(DataHelper.getStandartUser()).isPageOpened()
         );
     }
 
@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
     @Issue("BUG-1")
     public void incorrectEmailLoginTest() {
         User user = new User();
-        user.setEmail("asdasd");
+        user.setUsername("asdasd");
         user.setPassword(ReadProperties.password());
 
         Assert.assertEquals(
@@ -42,7 +42,7 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     public void incorrectPswLoginTest() {
         User user = new User();
-        user.setEmail(ReadProperties.username());
+        user.setUsername(ReadProperties.username());
         user.setPassword("123456");
 
         Assert.assertEquals(
@@ -56,7 +56,7 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.TRIVIAL)
     public void shortPswLoginTest() {
         User user = new User();
-        user.setEmail(ReadProperties.username());
+        user.setUsername(ReadProperties.username());
         user.setPassword("123");
 
         Assert.assertEquals(
@@ -70,7 +70,7 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     public void screenshotLoginTest() {
         User user = new User();
-        user.setEmail(ReadProperties.username());
+        user.setUsername(ReadProperties.username());
         user.setUsername("asdasd");
 
         Assert.assertTrue(

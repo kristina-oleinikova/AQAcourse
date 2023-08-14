@@ -14,7 +14,7 @@ public class e2eTest extends BaseTest {
     @Description("Test is verified the full flow of buying a product at Platform")
     @Severity(SeverityLevel.CRITICAL)
     public void e2eTest(){
-        loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened();
+        loginStep.successLogin(DataHelper.getStandartUser()).isPageOpened();
         inventoryAddItemStep.addItemToBasket().getHeaderTitle().isDisplayed();
         inventoryAddItemStep.openCart().getCheckoutButton().isDisplayed();
         cartStep.clickCheckout().getContinueButton().isDisplayed();
