@@ -16,14 +16,18 @@ public class CheckBox {
     }
 
     public void setFlag(){
-        if(!uiElement.isSelected()){
+        if(!isSelected()){
             uiElement.click();
         }
     }
 
     public void removeFlag(){
-        if(uiElement.isSelected()){
+        if(isSelected()){
             uiElement.click();
         }
+    }
+
+    public boolean isSelected(){
+        return uiElement.isSelected();
     }
 }
