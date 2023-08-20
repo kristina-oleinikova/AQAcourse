@@ -63,14 +63,14 @@ public class LoginTest extends BaseTest {
                 "Неверное сообщение об ошибке");
     }
 
-//    @Test(description = "Failed test - verify making screenshot functionality")
-//    @Description("Failed login: invalid username + valid password")
-//    @Severity(SeverityLevel.MINOR)
-//    public void screenshotLoginTest() {
-//        User user = new User();
-//        user.setUsername(ReadProperties.username());
-//        user.setUsername("asdasd");
-//
-//        loginStep.successLogin(user).isPageOpened());
-//    };
+    @Test(description = "Failed test - verify making screenshot functionality")
+    @Description("Failed login: invalid username + valid password")
+    @Severity(SeverityLevel.MINOR)
+    public void screenshotLoginTest() {
+        User user = new User();
+        user.setUsername(ReadProperties.username());
+        user.setUsername("asdasd");
+
+        loginStep.successLogin(user).isPageOpened());
+    };
 }
