@@ -8,6 +8,8 @@ import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Condition.visible;
+
 public class e2eTest extends BaseTest {
 
     @Test(description = "E2E test BUY PRODUCT")
@@ -15,11 +17,11 @@ public class e2eTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     public void e2eTest(){
         loginStep.successLogin(DataHelper.getStandartUser()).isPageOpened();
-        inventoryAddItemStep.addItemToBasket().getHeaderTitle().isDisplayed();
-        inventoryAddItemStep.openCart().getCheckoutButton().isDisplayed();
-        cartStep.clickCheckout().getContinueButton().isDisplayed();
+        inventoryAddItemStep.addItemToBasket().getHeaderTitle().shouldBe(visible);
+        inventoryAddItemStep.openCart().getCheckoutButton().shouldBe(visible);
+        cartStep.clickCheckout().getContinueButton().shouldBe(visible);
         checkoutAddInformationStep.fillFormWithValidData();
-        checkoutAddInformationStep.continueCheckout().getFinishButton().isDisplayed();
+        checkoutAddInformationStep.continueCheckout().getFinishButton().shouldBe(visible);
         checkoutOverviewStep.clickFinish();
 
         Assert.assertEquals(
