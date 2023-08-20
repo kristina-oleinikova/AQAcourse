@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import steps.LoginStep;
+import steps.ProjectStep;
 import utils.InvokedListener;
 import utils.configuration.ReadProperties;
 
@@ -15,8 +16,8 @@ import utils.configuration.ReadProperties;
 //@Listeners(Listener.class)
 public class BaseTest {
     protected WebDriver driver;
-
     protected LoginStep loginStep;
+    protected ProjectStep projectStep;
 
     @BeforeMethod
     public void setUp(ITestContext iTestContext) {
@@ -25,6 +26,7 @@ public class BaseTest {
         this.setDriverToContext(iTestContext, driver);
 
         loginStep = new LoginStep(driver);
+        projectStep = new ProjectStep(driver);
 
         driver.get(ReadProperties.getUrl());
     }
