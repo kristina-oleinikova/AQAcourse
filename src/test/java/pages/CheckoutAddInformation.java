@@ -1,9 +1,9 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutAddInformation extends BasePage {
 
@@ -18,8 +18,8 @@ public class CheckoutAddInformation extends BasePage {
 
     // Блок инициализации
 
-    public CheckoutAddInformation(WebDriver driver) {
-        super(driver);
+    public CheckoutAddInformation() {
+        super();
     }
 
     public void openPageByUrl(String pagePath) {
@@ -34,20 +34,20 @@ public class CheckoutAddInformation extends BasePage {
 
     // Блок атомарных методов
 
-    public WebElement getContinueButton() {
-        return driver.findElement(continueButtonLocator);
+    public SelenideElement getContinueButton() {
+        return $(continueButtonLocator);
     }
 
-    public WebElement getFirstNameInput() {
-        return driver.findElement(firstNameInputLocator);
+    public SelenideElement getFirstNameInput() {
+        return $(firstNameInputLocator);
     }
 
-    public WebElement getLastNameInput() {
-        return driver.findElement(lastNameInputLocator);
+    public SelenideElement getLastNameInput() {
+        return $(lastNameInputLocator);
     }
 
-    public WebElement getPostalCodeInput() {
-        return driver.findElement(postalCodeInputLocator);
+    public SelenideElement getPostalCodeInput() {
+        return $(postalCodeInputLocator);
     }
 
     public void setFirstName(String value) {

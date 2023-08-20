@@ -1,9 +1,9 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutComplete extends BasePage {
 
@@ -17,8 +17,8 @@ public class CheckoutComplete extends BasePage {
 
     // Блок инициализации
 
-    public CheckoutComplete(WebDriver driver) {
-        super(driver);
+    public CheckoutComplete() {
+        super();
     }
 
     public void openPageByUrl(String pagePath) {
@@ -32,11 +32,11 @@ public class CheckoutComplete extends BasePage {
 
     // Блок атомарных методов
 
-    public WebElement getBackToHomeButton() {
-        return driver.findElement(backHomeButtonLocator);
+    public SelenideElement getBackToHomeButton() {
+        return $(backHomeButtonLocator);
     }
 
-    public WebElement getCheckoutCompleteTitle() {
-        return driver.findElement(checkoutCompleteTitleLocator);
+    public SelenideElement getCheckoutCompleteTitle() {
+        return $(checkoutCompleteTitleLocator);
     }
 }

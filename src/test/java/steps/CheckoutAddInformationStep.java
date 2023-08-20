@@ -4,14 +4,13 @@ import baseEntities.BaseStep;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import pages.CheckoutAddInformation;
 import pages.CheckoutOverview;
 
 public class CheckoutAddInformationStep extends BaseStep {
     static Logger logger = LogManager.getLogger(CheckoutAddInformationStep.class);
-    public CheckoutAddInformationStep(WebDriver driver) {
-        super(driver);
+    public CheckoutAddInformationStep() {
+        super();
     }
 
     @Step("Fill the form with valid data")

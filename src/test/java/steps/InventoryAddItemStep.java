@@ -12,8 +12,8 @@ import pages.LoginPage;
 
 public class InventoryAddItemStep extends BaseStep {
     static Logger logger = LogManager.getLogger(InventoryAddItemStep.class);
-    public InventoryAddItemStep(WebDriver driver) {
-        super(driver);
+    public InventoryAddItemStep() {
+        super();
     }
 
     @Step("Add item to basket")

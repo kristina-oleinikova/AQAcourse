@@ -13,14 +13,12 @@ public class BaseStep {
     protected CheckoutOverview checkoutOverview;
     protected CheckoutComplete checkoutComplete;
 
-    public BaseStep(WebDriver driver) {
-        this.driver = driver;
-
-        loginPage = new LoginPage(driver);
-        inventoryPage = new InventoryPage(driver);
-        cartPage = new CartPage(driver);
-        checkoutAddInformation = new CheckoutAddInformation(driver);
-        checkoutOverview = new CheckoutOverview(driver);
-        checkoutComplete = new CheckoutComplete(driver);
+    public BaseStep() {
+        loginPage = new LoginPage();
+        inventoryPage = new InventoryPage();
+        cartPage = new CartPage();
+        checkoutAddInformation = new CheckoutAddInformation();
+        checkoutOverview = new CheckoutOverview();
+        checkoutComplete = new CheckoutComplete();
     }
 }

@@ -13,8 +13,8 @@ public class LoginStep extends BaseStep {
 
     static Logger logger = LogManager.getLogger(LoginStep.class);
 
-    public LoginStep(WebDriver driver) {
-        super(driver);
+    public LoginStep() {
+        super();
     }
 
     @Step("Login with valid credentials")

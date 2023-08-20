@@ -15,10 +15,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.9.5</aspectj.version>
         <testng.version>7.7.1</testng.version>
-        <selenium-java.version>4.10.0</selenium-java.version>
-        <webdrivermanager.version>5.4.1</webdrivermanager.version>
+        <selenide.version>6.17.0</selenide.version>
         <testng.xml.path>src/test/resources/Tests.xml</testng.xml.path>
         <allure-testng.version>2.23.0</allure-testng.version>
+        <allure-selenide.version>2.23.0</allure-selenide.version>
         <lombok.version>1.18.28</lombok.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <log4j-core.version>2.19.0</log4j-core.version>
@@ -34,15 +34,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium-java.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
@@ -50,6 +44,12 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure-selenide.version}</version>
         </dependency>
 
         <dependency>

@@ -1,9 +1,9 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import static com.codeborne.selenide.Selenide.$;
 
 public class CartPage extends BasePage {
     private final static String pagePath = "/cart.html";
@@ -13,8 +13,8 @@ public class CartPage extends BasePage {
 
 
     // Блок инициализации
-    public CartPage(WebDriver driver) {
-        super(driver);
+    public CartPage() {
+        super();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class CartPage extends BasePage {
 
     // Блок атомарных методов
 
-    public WebElement getCheckoutButton() {
-        return driver.findElement(checkoutButtonLocator);
+    public SelenideElement getCheckoutButton() {
+        return $(checkoutButtonLocator);
     }
 }

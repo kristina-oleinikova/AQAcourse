@@ -1,17 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import models.User;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import steps.LoginStep;
-
-import java.time.Duration;
+import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
     // Блок описания локаторов для элементов
@@ -21,8 +14,8 @@ public class LoginPage extends BasePage {
     private final By errorMessageLocator = By.xpath("//div [@class='error-message-container error']");
 
     // Блок инициализации
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super();
     }
 
     @Override
@@ -31,20 +24,20 @@ public class LoginPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getUsernameInput() {
-        return driver.findElement(usernameInputLocator);
+    public SelenideElement getUsernameInput() {
+        return $(usernameInputLocator);
     }
 
-    public WebElement getPswInput() {
-        return driver.findElement(pswInputLocator);
+    public SelenideElement getPswInput() {
+        return $(pswInputLocator);
     }
 
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
+    public SelenideElement getLogInButton() {
+        return $(logInButtonLocator);
     }
 
-    public WebElement getErrorMessage() {
-        return driver.findElement(errorMessageLocator);
+    public SelenideElement getErrorMessage() {
+        return $(errorMessageLocator);
     }
 
     public void setEmail(String value) {
