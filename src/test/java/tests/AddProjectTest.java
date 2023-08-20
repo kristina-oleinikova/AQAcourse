@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 import pages.AddTestCasePage;
 import utils.configuration.ReadProperties;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class AddProjectTest  extends BaseTest{
 
     @Test
@@ -15,8 +17,8 @@ public class AddProjectTest  extends BaseTest{
         loginStep.successLogin(DataHelper.getAdminUser());
         projectStep.AddProject(DataHelper.getProject());
 
-        driver.get("https://aqa21onl03.testrail.io/index.php?/cases/add/2");
-        AddTestCasePage addTestCasePage = new AddTestCasePage(driver);
+        open("https://aqa21onl03.testrail.io/index.php?/cases/add/2");
+        AddTestCasePage addTestCasePage = new AddTestCasePage();
         addTestCasePage.getTemplateDropDown().selectByIndex(1);
         addTestCasePage.getTypeDropDown().selectByIndex(1);
         addTestCasePage.getTemplateDropDown().selectByText("Test Case (Steps)");

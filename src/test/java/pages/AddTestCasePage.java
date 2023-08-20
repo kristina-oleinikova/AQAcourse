@@ -1,13 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
-import elements.CheckBox;
+import com.codeborne.selenide.WebDriverRunner;
 import elements.DropDown;
-import elements.RadioButton;
-import elements.UIElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import static com.codeborne.selenide.Selenide.$;
 
 public class AddTestCasePage extends BasePage {
     //private final static String pagePath = "/index.php?/admin/projects/add";
@@ -19,8 +16,8 @@ public class AddTestCasePage extends BasePage {
     private final By typeDropDownLocator = By.id("type_id_chzn");
 
     // Блок инициализации
-    public AddTestCasePage(WebDriver driver) {
-        super(driver);
+    public AddTestCasePage() {
+        super();
     }
 
     @Override
@@ -30,10 +27,10 @@ public class AddTestCasePage extends BasePage {
 
     // Блок атомарных методов
     public DropDown getTemplateDropDown() {
-        return new DropDown(driver, templateDropDownLocator);
+        return new DropDown(WebDriverRunner.getWebDriver(), templateDropDownLocator);
     }
 
     public DropDown getTypeDropDown() {
-        return new DropDown(driver, typeDropDownLocator);
+        return new DropDown(WebDriverRunner.getWebDriver(), typeDropDownLocator);
     }
 }

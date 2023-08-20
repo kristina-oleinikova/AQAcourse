@@ -2,11 +2,10 @@ package steps;
 
 import baseEntities.BaseStep;
 import models.Project;
-import org.openqa.selenium.WebDriver;
 
 public class ProjectStep extends BaseStep {
-    public ProjectStep(WebDriver driver) {
-        super(driver);
+    public ProjectStep() {
+        super();
     }
 
     public void AddProject(Project project) {

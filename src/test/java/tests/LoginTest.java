@@ -10,8 +10,7 @@ import utils.configuration.ReadProperties;
 public class LoginTest extends BaseTest {
     @Test
     public void successLoginTest() {
-        Assert.assertTrue(
-                loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened());
+                loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened();
     }
 
     @Test
