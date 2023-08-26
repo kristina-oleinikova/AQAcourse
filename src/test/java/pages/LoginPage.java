@@ -12,10 +12,10 @@ import java.time.Duration;
 
 public class LoginPage extends BasePage {
     // Блок описания локаторов для элементов
-    private final By usernameInputLocator = By.id("user-name");
+    private final By usernameInputLocator = By.id("name");
     private final By pswInputLocator = By.id("password");
-    private final By logInButtonLocator = By.id("login-button");
-    private final By errorMessageLocator = By.xpath("//div [@class='error-message-container error']");
+    private final By logInButtonLocator = By.id("button_primary");
+    private final By errorMessageLocator = By.className("error-text");
 
     // Блок инициализации
     public LoginPage(WebDriver driver) {

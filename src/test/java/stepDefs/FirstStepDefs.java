@@ -15,12 +15,12 @@ public class FirstStepDefs {
 
     @Given("открыт браузер")
     public void startBrowser() {
-        //driver = new BrowserFactory().getDriver();
+        driver = new BrowserFactory().getDriver();
     }
 
     @When("страница логина открыта")
     public void openLoginPage() {
-        //driver.get(ReadProperties.getUrl());
+        driver.get(ReadProperties.getUrl());
     }
 
     @Then("поле username отображается")
