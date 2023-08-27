@@ -16,6 +16,7 @@ public class LoginPage extends BasePage {
     private final By pswInputLocator = By.id("password");
     private final By logInButtonLocator = By.id("button_primary");
     private final By errorMessageLocator = By.className("error-text");
+    private final By errorFieldTextLocator = By.className("loginpage-message");
 
     // Блок инициализации
     public LoginPage(WebDriver driver) {
@@ -42,6 +43,10 @@ public class LoginPage extends BasePage {
 
     public WebElement getErrorMessage() {
         return driver.findElement(errorMessageLocator);
+    }
+
+    public WebElement getErrorFieldText() {
+        return driver.findElement(errorFieldTextLocator);
     }
 
     public void setEmail(String value) {
