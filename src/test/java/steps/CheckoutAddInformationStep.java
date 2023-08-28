@@ -2,8 +2,8 @@ package steps;
 
 import baseEntities.BaseStep;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pages.CheckoutAddInformation;
 import pages.CheckoutOverview;
 

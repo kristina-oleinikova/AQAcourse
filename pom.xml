@@ -21,7 +21,7 @@
         <allure-selenide.version>2.23.0</allure-selenide.version>
         <lombok.version>1.18.28</lombok.version>
         <allure-maven.version>2.10.0</allure-maven.version>
-        <log4j-core.version>2.19.0</log4j-core.version>
+        <slf4j-log4j12.version>2.0.3</slf4j-log4j12.version>
         <jackson-dataformat-xml.version>2.14.0</jackson-dataformat-xml.version>
     </properties>
 
@@ -59,9 +59,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j-core.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12.version}</version>
         </dependency>
 
         <dependency>

@@ -71,6 +71,6 @@ public class LoginTest extends BaseTest {
         user.setUsername(ReadProperties.username());
         user.setUsername("asdasd");
 
-        loginStep.successLogin(user).isPageOpened());
+        loginStep.successLogin(user).isPageOpened();
     };
 }
